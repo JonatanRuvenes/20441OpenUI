@@ -6,7 +6,7 @@ public class IntList {
     public IntList( ) {
         _head = null;
     }
-    
+
     public void addToEnd(int num) {
         // adds num at the end of the list
         IntNode node = new IntNode(num);
@@ -19,7 +19,7 @@ public class IntList {
             ptr.setNext(node);
         }
     }
-    
+
     public String toString()
     {
         String s = "";

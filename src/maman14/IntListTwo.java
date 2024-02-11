@@ -68,13 +68,22 @@ public class IntListTwo {
         return toStringReverse(node.getNext()) + ", " + node.getNum();
     }
 
+    /**
+     * this method check if there is a path from the head to tail that from every element the path can move only x steps right or left determined by the element value
+     * @return if there is a path from the head to the tail of the list
+     */
     public boolean isWay() {
-        if (_head == null)
+        if (_head == null) // the empty path
             return true;
 
         return isWay(_head);
     }
 
+    /**
+     * this method check if there is a path from the start to tail that from every element the path can move only x steps right or left determined by the element value
+     * @param node the starting position to search from
+     * @return if there is a path from the head to the tail of the list
+     */
     private boolean isWay(IntNodeTwo node) {
         if (node == null || node.getNum() == -1)
             return false;
@@ -85,7 +94,13 @@ public class IntListTwo {
         return isWay(moveBack(node,steps)) || isWay(moveForward(node,steps));
     }
 
-    public IntNodeTwo moveBack(IntNodeTwo node, int steps){
+    /**
+     * this method move x step back in a list
+     * @param node the list
+     * @param steps the amount of steps to move
+     * @return the element in the x steps back in the list
+     */
+    private IntNodeTwo moveBack(IntNodeTwo node, int steps){
         if(steps == 0)
             return node;
         if(node == null)
@@ -93,7 +108,13 @@ public class IntListTwo {
         return moveBack(node.getPrev(), steps-1);
     }
 
-    public IntNodeTwo moveForward(IntNodeTwo node, int steps){
+    /**
+     * this method move x step forward in a list
+     * @param node the list
+     * @param steps the amount of steps to move
+     * @return the element in the x steps forward in the list
+     */
+    private IntNodeTwo moveForward(IntNodeTwo node, int steps){
         if(steps == 0)
             return node;
         if(node == null)
